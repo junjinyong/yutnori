@@ -6,7 +6,11 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(Qt6_DIR "/home/junjinyong/Qt/6.8.2/gcc_64/lib/cmake/Qt6")
+if(UNIX)
+    set(Qt6_DIR "/home/junjinyong/Qt/6.8.2/gcc_64/lib/cmake/Qt6")
+else()
+    set(Qt6_DIR "C:/Qt/6.8.2/mingw_64/lib/cmake/Qt6")
+endif()
 
 find_package(Qt6 REQUIRED COMPONENTS
         Core

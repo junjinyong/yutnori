@@ -1,7 +1,10 @@
 #include "window.h"
 
 
-Window::Window(QWidget* parent) : QWidget(parent), scene(), view(&scene), sign(), board(":/images/board.svg"), pieces{Piece(":/images/piece1.svg", 0, 1000, 324), Piece(":/images/piece1.svg", 1, 1000, 476), Piece(":/images/piece1.svg", 2, 1000, 628), Piece(":/images/piece1.svg", 3, 1000, 780), Piece(":/images/piece2.svg", 4, 1200, 324), Piece(":/images/piece2.svg", 5, 1200, 476), Piece(":/images/piece2.svg", 6, 1200, 628), Piece(":/images/piece2.svg", 7, 1200, 780), Piece(":/images/piece3.svg", 8, 1400, 324), Piece(":/images/piece3.svg", 9, 1400, 476), Piece(":/images/piece3.svg", 10, 1400, 628), Piece(":/images/piece3.svg", 11, 1400, 780)}, scores{0, 0, 0} {
+static const QString lookup[4] = {QString(":/images/piece1.svg"), QString(":/images/piece2.svg"), QString(":/images/piece3.svg"), QString(":/images/board.svg")};
+static const QString name = QString("윷놀이");
+
+Window::Window(QWidget* parent) : QWidget(parent), scene(), view(&scene), sign(), board(lookup[3]), pieces{Piece(lookup[0], 0, 1000, 324), Piece(lookup[0], 1, 1000, 476), Piece(lookup[0], 2, 1000, 628), Piece(lookup[0], 3, 1000, 780), Piece(lookup[1], 4, 1200, 324), Piece(lookup[1], 5, 1200, 476), Piece(lookup[1], 6, 1200, 628), Piece(lookup[1], 7, 1200, 780), Piece(lookup[2], 8, 1400, 324), Piece(lookup[2], 9, 1400, 476), Piece(lookup[2], 10, 1400, 628), Piece(lookup[2], 11, 1400, 780)}, scores{0, 0, 0} {
     scene.setSceneRect(-30, -30, 900, 900);
 
     scene.addItem(&sign);
@@ -14,7 +17,7 @@ Window::Window(QWidget* parent) : QWidget(parent), scene(), view(&scene), sign()
 
     view.setRenderHint(QPainter::Antialiasing);
     view.setFixedSize(1600, 960);
-    view.setWindowTitle("윷놀이");
+    view.setWindowTitle(name);
 
     view.setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
@@ -39,7 +42,7 @@ unsigned int Window::getSelectedPiece(const unsigned int team) {
 
     loop.exec();
 
-    qDebug() << "Clicked target item ID:" << clickedId;
+    //qDebug() << "Clicked target item ID:" << clickedId;
     return clickedId;
 }
 

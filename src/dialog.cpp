@@ -28,6 +28,6 @@ Dialog::Dialog(const unsigned int team, QWidget* parent) : QDialog(parent), layo
 unsigned int Dialog::getSelectedOption() {
     selectedOption = 999;
     this -> exec();
-    qDebug() << "Selected option:" << selectedOption;
+    //qDebug() << "Selected option:" << selectedOption;
     return selectedOption;
 }

@@ -13,7 +13,7 @@ void Piece::initialize() {
 }
 
 void Piece::mousePressEvent(QGraphicsSceneMouseEvent* event) {
-    qDebug() << "Piece clicked!" << this -> id;
+    //qDebug() << "Piece clicked!" << this -> id;
     emit clicked(this -> id);
     QGraphicsSvgItem::mousePressEvent(event);
 }
