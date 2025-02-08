@@ -1,6 +1,8 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
+#include <deque>
+
 #include <QWidget>
 #include <QGraphicsView>
 #include <QGraphicsScene>
@@ -26,6 +28,7 @@ class Game final : public QWidget {
 
 public:
     explicit Game(QWidget* parent = nullptr);
+    void run();
     unsigned int getSelectedPiece(unsigned int team);
     void move(unsigned int id, unsigned int option);
     void updateTurn(unsigned int team);

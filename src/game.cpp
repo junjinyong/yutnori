@@ -24,6 +24,25 @@ Game::Game(QWidget* parent) : QWidget(parent), scene(), view(&scene), sign(), bo
     view.show();
 }
 
+void Game::run() {
+    std::deque <unsigned int> deq {0, 1, 2};
+
+    while(!deq.empty()) {
+        const unsigned int team = deq.front();
+        deq.pop_front();
+
+        updateTurn(team);
+
+        const unsigned int id = getSelectedPiece(team);
+        const unsigned int option = Dialog(team).getSelectedOption();
+        move(id, option);
+
+        if (getScore(team) < 4) {
+            deq.push_back(team);
+        }
+    }
+}
+
 unsigned int Game::getSelectedPiece(const unsigned int team) {
     QEventLoop loop;
     int clickedId = -1;
