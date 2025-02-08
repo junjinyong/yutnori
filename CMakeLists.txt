@@ -26,13 +26,13 @@ target_include_directories(yutnori PRIVATE include)
 
 target_sources(yutnori
         PRIVATE
-        src/window.cpp
+        src/game.cpp
         src/board.cpp
         src/team.cpp
         src/piece.cpp
         src/dialog.cpp
         src/sign.cpp
-        include/window.h
+        include/game.h
         include/board.h
         include/team.h
         include/piece.h

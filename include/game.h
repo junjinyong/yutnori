@@ -21,11 +21,11 @@
 #include "sign.h"
 
 
-class Window final : public QWidget {
+class Game final : public QWidget {
     Q_OBJECT
 
 public:
-    explicit Window(QWidget* parent = nullptr);
+    explicit Game(QWidget* parent = nullptr);
     unsigned int getSelectedPiece(unsigned int team);
     void move(unsigned int id, unsigned int option);
     void updateTurn(unsigned int team);

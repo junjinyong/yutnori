@@ -1,12 +1,12 @@
 #include <deque>
 
-#include "window.h"
+#include "game.h"
 
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
-    Window window(nullptr);
+    Game window(nullptr);
 
     std::deque <unsigned int> deq {0, 1, 2};
 
